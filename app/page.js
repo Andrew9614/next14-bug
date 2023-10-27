@@ -1,5 +1,12 @@
-import { Bug } from './Bug';
+import Bug from "./Bug";
 
 export default function Home() {
-  return <Bug>{Array(6).fill(<div>F</div>)}</Bug>;
+	// Added item key because it was missing.
+	return (
+		<Bug>
+			{Array.from({ length: 6 }, (_, i) => i).flatMap((_, idx) => (
+				<div key={idx}>F</div>
+			))}
+		</Bug>
+	);
 }
